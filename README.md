@@ -1,0 +1,179 @@
+<p align="center">
+      <img src="https://github.com/user-attachments/assets/6a2c0103-81cb-4431-81b9-643b9f40add8" alt="logo da Janosys" width="200">
+      <p align="center">"Entre o ontem e o amanhã, soluções que permanecem."</p>
+
+---
+
+## Aprendizado por Projeto Integrado (API)
+
+#### 2º sem.2026/1 - Desenvolvimento de Software Multiplataforma (Fatec-SJC)
+
+---
+
+<p align="center"> 📑 ÍNDICE </p>
+<p align="center">   
+  |<a href="#desafio"> Desafio <a/> |
+  <a href="#tecnologias"> Tecnologias <a/> |
+  <a href="#backlog"> Backlog do Produto</a> |
+  <a href="#sprints"> Registro das Sprints</a> |
+  <a href="#dor"> DoR</a> |
+  <a href="#dod"> DoD</a> |
+  <a href="#time"> Time</a> |
+</p>
+
+---
+
+## 🏅 Desafio <a id="desafio"></a>
+
+Este projeto propõe o desenvolvimento de uma plataforma web estruturada para centralizar, organizar e correlacionar requisitos normativos aeronáuticos.
+
+O projeto é idealizado pela FATEC de São José dos Campos e alunos, tendo como parceiro externo, no papel do celiente, a Akaer, empresa da região da área de engenharia aeroespacial e defesa.
+
+---
+
+## 💻 Tecnologias Utilizadas no Projeto <a id="tecnologias"></a>
+
+<h4 align="center">
+🌐 Front-end (Linguagens e Frameworks)
+<p align="center">
+<a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5" height="50px">
+</a>&nbsp;
+<a href="https://developer.mozilla.org/docs/Web/CSS" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3" height="50px">
+</a>&nbsp;
+<a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB" alt="React" height="50px">
+</a>
+</p>
+
+⚙️ Back-end
+<p align="center">
+<a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" height="50px">
+</a>&nbsp;
+<a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js" height="50px">
+</a>&nbsp;
+<a href="https://www.python.org" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python" height="50px">
+</a>&nbsp;
+<a href="https://flask.palletsprojects.com" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white" alt="Flask" height="50px">
+</a>
+</p>
+
+🗄️ Banco de Dados
+<p align="center">
+<a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white" alt="MySQL" height="50px">
+</a>
+</p>
+
+☁️ Infraestrutura e DevOps
+<p align="center">
+<a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker" height="50px">
+</a>&nbsp;
+<a href="https://aws.amazon.com/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/AWS-232F3E?style=flat&logo=amazon-aws&logoColor=white" alt="AWS" height="50px">
+</a>&nbsp;
+<a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/GoogleColab-F9AB00?style=flat&logo=googlecolab&logoColor=white" alt="Google Colab" height="50px">
+</a>
+</p>
+
+🛠️ Ferramentas e Design
+<p align="center">
+<a href="https://github.com" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub" height="50px">
+</a>&nbsp;
+<a href="https://www.atlassian.com/br/software/jira" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Jira-0052CC?style=flat&logo=jira&logoColor=white" alt="Jira" height="50px">
+</a>&nbsp;
+<a href="https://www.figma.com" target="_blank" rel="noopener noreferrer">
+<img src="https://img.shields.io/badge/Figma-F24E1E?style=flat&logo=figma&logoColor=white" alt="Figma" height="50px">
+</a>
+</p>
+</h4>
+
+---
+
+## 📋 Backlog do Produto <a id="backlog"></a>
+
+| Rank | Título                                             | Prioridade | User Stories                                                                                                                                                                                                                  | Estimativa | Sprint |
+| :--: | :------------------------------------------------- | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :----: |
+|  1   | Titulo                                    |    ALTA    | US                        |     8      |   1    |
+---
+
+# Registro das Sprints <a id="sprints"></a>
+
+|      Sprint       |  Previsão  |    Status    |     Histórico     |
+| :---------------: | :--------: | :----------: | :---------------: |
+|        01         | 05/04/2026 |  Em construção  | [MVP](MVP/sp1.md) |
+|        02         | 03/05/2026 |  Em construção  | [MVP](MVP/sp2.md) |
+|        03         | 31/05/2026 |  Em construção  | [MVP](MVP/sp3.md) |
+| Feira de Soluções | 11/06/2026 |  Em construção  | [FEIRA](MVP/sp4.md) |
+
+---
+
+## 🏃‍ DoR - Definition of Ready <a id="dor"></a>
+  <ul>
+      <li> User Stories com critérios de aceitação definidos no formato “Como [persona], quero [ação] para que [objetivo]";</li>
+      <li> Subtarefas derivadas da User Storie estão identificadas; </li>
+      <li> Compreensão do time da necessidade do cliente e do valor de negócio; </li>
+      <li> Esforço estimado pelo planning poker; </li>
+      <li> Definição dos valores do negócio; </li>
+      <li> A história pode ser implementada sem depender de outra tarefa da mesma Sprint; </li> 
+      <li> Equipe claramente separada em Frontend e Backend. </li> 
+  </ul>
+
+---
+
+## 🏆 DoD - Definition of Done <a id="dod"></a>
+  <ul>
+      <li> Código desenvolvido conforme critérios de aceitação; </li>
+      <li> Testes funcionais de usabilidade realizados com sucesso; </li>
+      <li> Código versionado e revisado; </li>
+      <li> Manual de Usuário; </li>
+      <li> Manual da Aplicação; </li>
+      <li> Documentação atualizada; </li>
+      <li> A funcionalidade está disponível em ambiente de teste/homologação. </li>
+      <li> Vídeo de entrega anexado à documentação. </li>
+  </ul>
+ 
+---
+
+## 📦 Manual de Instalação
+
+### Pré-requisitos
+
+Antes de iniciar a instalação, certifique-se de que você tenha os seguintes itens instalados na sua máquina:
+
+- [Git](https://git-scm.com/)
+
+---
+
+### 🚀 Passo a Passo para Rodar Localmente
+
+#### 1. Clone o repositório
+
+```bash
+git clone https://github.com/janosystime/Janosys-Project-1-Akaer
+cd Janosys-Project
+```
+
+---
+
+## 👷 Time <a id="time"></a>
+|      Membro       |    Função     |                                                                        GitHub                                                                         |                                                                                    Linkedin                                                                                     |                                                                                    Portfólio                                                                                     |
+| :---------------: | :-----------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|    Pedro Lucas    |   Product Owner    | <a href="https://github.com/pedrodevroot"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |     <a href="https://www.linkedin.com/in/pedro-lucas-76870237b/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">     | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)](https://meu-portifolio-astro.vercel.app/)  |
+|    Pedro Chaim    |   Scrum Master    |  <a href="https://github.com/Spockchaim"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>   |           <a href="https://www.linkedin.com/in/pedrochaim"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">           | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)](https://portfolio-lovat-beta-35.vercel.app/)  |
+|   Altier da Silva Romão    | Dev Team| <a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |     <a href="https://www.linkedin.com/in"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">     | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)]() |
+|    Lucas Alves    | Dem Team  | <a href="https://github.com/LuccasLukaDev"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/lucas-da-silva-alves-18852b2b3"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"> | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)](https://portfolio-three-iota-46.vercel.app/)  |
+|   Lucas Santos    |   Dev Team    |   <a href="https://github.com/tirolasca"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>   |        <a href="https://www.linkedin.com/in/lucas-santostec/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">        | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)](https://lucastec.vercel.app/)  |
+|   Vinicius Silva   |   Dev Team    |   <a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>   |        <a href="https://www.linkedin.com/in/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">        | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)]()  |
+|   Wagner Costa    | Dev Team| <a href="https://github.com/Costa-Wagner"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>  |     <a href="https://www.linkedin.com/in/wagner-costa-391b0726/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">     | [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge)](https://portfolio-wagner-nu.vercel.app/) |
+---
+
