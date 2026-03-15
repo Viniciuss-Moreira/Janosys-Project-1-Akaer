@@ -70,6 +70,13 @@ Um site navegável e que possibilite a gestão das normas e sua visualização.
 - **Engenheiro:**<br>Usuário que irá apenas visualizar as informações contidas no sistema, podendo filtrar as informações desejadas pelos filtros que serão implementados futuramente.
 
 ---
+## Resumo da Sprint 
+
+| Capacidade estimada da equipe por sprint | 40 Pontos | 
+| Meta da Sprint | User Stories do Rank #1 e #2 |
+| Previsão da Sprint (extra)| #User Stories do Rank #4 e #7 | 
+
+---
 
 ## 📋Backlog da Sprint <a id="us"></a>
 
@@ -77,23 +84,22 @@ Um site navegável e que possibilite a gestão das normas e sua visualização.
 | :--: | :---------------- | :--------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------: | :---: |
 | <span style="color:green">1</span> | <span style="color:green">Gestão de normas</span> | <span style="color:green">ALTA</span> | <span style="color:green">Como administrador, quero gerenciar normas no sistema para melhor organização.</span> | <span style="color:green">7</span> | <span style="color:green">1</span> |
 | 2 | Visualização de normas | ALTA | Como engenheiro, quero visualizar listas de normas para melhor interpretação. | 4 | 1 |
-
+| 4 | Filtragem de normas por Código | ALTA | Como engenheiro, quero filtrar normas pelo código da mesma para encontrar rapidamente as informações relevantes. | 7 | 2 |
+| 7 | Filtro de Normas por Categoria Pública ou Privada | ALTA | Como engenheiro, quero filtrar normas por categoria (pública ou privada), para melhor organização. | 5 | 2 |
 ---
 
 ## 🛠️ Tasks da Sprint <a id="tasks"></a>
 
 | Rank | Título | US Relacionada | Estimativa (hr) |
 | :--: | :---------------- | :--------: | :--------: |
-| 1 | Criação da Land Page |1| |
-| 2 | Criar tela de login  | 1 | |
-| 3 | Criar tela onde a norma será mostrada | 1 | |  
-| 4 | Cadastro de norma | 1 | | 
-| 5 | Adicionar Palavra-Chave a norma| 1 | | 
-| 6 | Excluir norma | 1 | | 
-| 7 | Visualizar observações da norma | 2 | | 
-| 8 | Visualizar a norma | 2 | | 
-
-
+| 1 | Criação da Land Page |1| 4 |
+| 2 | Criar tela de login  | 1 | 2 |
+| 3 | Criar tela onde a norma será mostrada | 1 |2 |  
+| 4 | Implantar cadastro de norma | 1 | 4 | 
+| 5 | Implantar palavra-chave a norma| 1 | 4 | 
+| 6 | Implantar excluir norma | 1 | 2 | 
+| 7 | Implantar a visualização das observações da norma | 4 | 4 | 
+| 8 | Implantar a visualização da norma | 4  | 4 | 
 
 ---
 
@@ -116,7 +122,7 @@ Um site navegável e que possibilite a gestão das normas e sua visualização.
 
 ## 📂 Anexos / Evidências <a id="anexos"></a>
 
-- [Modelo do Banco de Dados](../docs/bd_sp1)
+- [Modelo do Banco de Dados](../docs/bd_sp1.png)
 
 ---
 
