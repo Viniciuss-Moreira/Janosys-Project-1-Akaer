@@ -116,7 +116,7 @@ Um site navegável e que possibilite a gestão das normas e sua visualização.
 
 ## 📂 Anexos / Evidências <a id="anexos"></a>
 
-- [Modelo do Banco de Dados](docs/bd_sp1)
+- [Modelo do Banco de Dados](../docs/bd_sp1)
 
 ---
 
