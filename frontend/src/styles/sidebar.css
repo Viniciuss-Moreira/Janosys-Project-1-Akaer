@@ -186,3 +186,94 @@ button.nav-item {
   padding: 13px 0;
   width: 52px;
 }
+
+.mobile-menu-btn {
+  display: none;
+}
+.toggle-btn-mobile {
+  display: none;
+}
+.mobile-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: flex;
+    position: fixed;
+    top: 9px;   
+    left: 10px; 
+    z-index: 900;
+    background: var(--cor-vinho, #800000);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px !important; 
+    transform: translateX(-100%); 
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .sidebar.mobile-aberto {
+    transform: translateX(0);
+  }
+
+  .toggle-btn-desktop {
+    display: none;
+  }
+  .toggle-btn-mobile {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .sidebar-toggle {
+    justify-content: flex-end !important;
+    padding: 15px 17px !important;
+  }
+
+  .sidebar .nav-label,
+  .sidebar .nav-secao-label,
+  .sidebar .sidebar-usuario-nome {
+    opacity: 1 !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  .sidebar .nav-item {
+    justify-content: flex-start !important;
+    padding: 13px 17px !important;
+    gap: 12px !important;
+  }
+
+  .sidebar .sidebar-usuario {
+    justify-content: flex-start !important;
+    padding: 8px 17px !important;
+  }
+}
