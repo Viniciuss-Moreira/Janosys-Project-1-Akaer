@@ -16,7 +16,6 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { 
   Network, 
-  FileText, 
   Users,
   LogOut, 
   Pin, 
@@ -93,19 +92,14 @@ export default function Sidebar(props: PropsSidebar) {
       <hr className="nav-divisor" />
       <p className="nav-secao-label">Menu</p>
 
-      <NavLink to="/mindmap"  className="nav-item">
+      <NavLink to="/home"  className="nav-item">
         <Network size={20} />
-        <span className="nav-label">Mind Map</span>
+        <span className="nav-label">Home</span>
       </NavLink>
 
       <NavLink to="/normativas" className="nav-item">
         <BookOpen size={20} />
         <span className="nav-label">Normativas</span>
-      </NavLink>
-
-      <NavLink to="/notas"      className="nav-item">
-        <FileText size={20} />
-        <span className="nav-label">Notas</span>
       </NavLink>
 
       {/* Bloco admin: só aparece se isAdmin for true */}

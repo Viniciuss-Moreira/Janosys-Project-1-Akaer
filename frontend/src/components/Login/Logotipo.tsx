@@ -9,3 +9,4 @@ function Logotipo() {
 }
 
 export default Logotipo;
+
