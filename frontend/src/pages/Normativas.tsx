@@ -38,8 +38,8 @@ const NORMAS_BASE: Norma[] = [
     codigo: "25.1309",
     titulo: "Análise de Segurança de Sistemas",
     organizacao: "ANAC",
-    categoria: "Design",
-    subcategoria: "Sistemas",
+    categoria: "Instalação",
+    subcategoria: "Estrutura",
     tipo: "Pública",
     revisao: "Emenda 09",
     status: "Vigente",
@@ -51,8 +51,8 @@ const NORMAS_BASE: Norma[] = [
     codigo: "25.571",
     titulo: "Damage Tolerance and Fatigue Evaluation",
     organizacao: "FAA",
-    categoria: "Stress",
-    subcategoria: "Fadiga",
+    categoria: "Geral",
+    subcategoria: "Basic Notes",
     tipo: "Pública",
     revisao: "Amendment 27",
     status: "Vigente",
@@ -64,8 +64,8 @@ const NORMAS_BASE: Norma[] = [
     codigo: "9001",
     titulo: "Quality management systems — Requirements",
     organizacao: "ISO",
-    categoria: "Manufacturing",
-    subcategoria: "Qualidade",
+    categoria: "Peça",
+    subcategoria: "Metálica",
     tipo: "Pública",
     revisao: "2015",
     status: "Vigente",
@@ -79,8 +79,8 @@ const NORMAS_BASE: Norma[] = [
     codigo: "CS-25",
     titulo: "Certification Specifications for Large Aeroplanes",
     organizacao: "EASA",
-    categoria: "Lightning",
-    subcategoria: "Proteção contra Raios",
+    categoria: "Geral",
+    subcategoria: "Indentificação",
     tipo: "Pública",
     revisao: "Amendment 27",
     status: "Vigente",
@@ -102,12 +102,19 @@ const ORGANIZACOES = [
   "AKAER",
 ];
 const CATEGORIAS = [
-  "Manufacturing",
-  "Materials",
-  "Design",
-  "Stress",
-  "Lightning",
+  "Peça",
+  "Conjunto",
+  "Instalação",
+  "Geral",
 ];
+
+const SUBCATEGORIAS: Record<string, string[]> = {
+  Peça: ["Metálica", "Não Metálica"],
+  Conjunto: ["Instalação de Acessórios", "União de Peças", "Cablagem"],
+  Instalação: ["Estrutura", "Hidromecânicos", "Elétrica", "Geral", "Teste"],
+  Geral: ["Basic Notes", "Identificação"],
+};
+
 const STATUS_OPCOES = ["Vigente", "Revogada"];
 
 const ORG_ORIGENS: Record<string, string> = {
@@ -122,11 +129,10 @@ const ORG_ORIGENS: Record<string, string> = {
 };
 
 const CAT_ICONES: Record<string, string> = {
-  Manufacturing: "fa-industry",
-  Materials: "fa-flask-vial",
-  Design: "fa-compass-drafting",
-  Stress: "fa-weight-hanging",
-  Lightning: "fa-bolt",
+  Peça: "fa-gear",
+  Conjunto: "fa-gears",
+  Instalação: "fa-screwdriver-wrench",
+  Geral: "fa-layer-group",
 };
 
 const FORM_INICIAL: Partial<Norma> = {
@@ -492,16 +498,9 @@ export default function Biblioteca() {
       ]);
   };
 
-  const subcategoriasDisponiveis = Array.from(
-    new Set(
-      normas
-        .filter(
-          (normaAtual) =>
-            normaAtual.categoria === filtroCategoria && normaAtual.subcategoria,
-        )
-        .map((normaAtual) => normaAtual.subcategoria),
-    ),
-  ).sort();
+  const subcategoriasDisponiveis = filtroCategoria !== "Todas"
+  ? SUBCATEGORIAS[filtroCategoria] ?? []
+  : [];
 
   const filtrosAtivos =
     termoPesquisa !== "" ||
@@ -891,9 +890,10 @@ export default function Biblioteca() {
                       <select
                         className="form-select"
                         value={form.categoria}
-                        onChange={(evento) =>
-                          updateForm("categoria", evento.target.value)
-                        }
+                        onChange={(evento) => {
+                          updateForm("categoria", evento.target.value);
+                          updateForm("subcategoria", "");
+                        }}
                       >
                         {CATEGORIAS.map((nomeCategoria) => (
                           <option key={nomeCategoria} value={nomeCategoria}>
@@ -907,14 +907,20 @@ export default function Biblioteca() {
                       <label className="form-label">
                         <i className="fas fa-layer-group"></i> Subcategoria
                       </label>
-                      <input
-                        className="form-input"
+                      <select
+                        className="form-select"
                         value={form.subcategoria}
                         onChange={(evento) =>
                           updateForm("subcategoria", evento.target.value)
                         }
-                        placeholder="Ex: Sistemas, Fadiga..."
-                      />
+                      >
+                        <option value="">Selecione uma subcategoria</option>
+                        {(SUBCATEGORIAS[form.categoria ?? ""] ?? []).map((nomeSub) => (
+                          <option key={nomeSub} value={nomeSub}>
+                            {nomeSub}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                 )}

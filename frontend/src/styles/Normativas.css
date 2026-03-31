@@ -620,20 +620,17 @@ body {
   flex: 1;
 }
 
-.norma-card.theme-cat-manufacturing {
-  border-left-color: #ea580c;
+.norma-card.theme-cat-peça {
+  border-left-color: #e25e17;
 }
-.norma-card.theme-cat-materials {
+.norma-card.theme-cat-conjunto {
   border-left-color: #0f766e;
 }
-.norma-card.theme-cat-design {
+.norma-card.theme-cat-instalação {
   border-left-color: #7c3aed;
 }
-.norma-card.theme-cat-stress {
+.norma-card.theme-cat-geral {
   border-left-color: #dc2626;
-}
-.norma-card.theme-cat-lightning {
-  border-left-color: #b45309;
 }
 
 .norma-card-main-icon {
@@ -777,7 +774,7 @@ body {
   border-color: #e8b4c0;
 }
 
-.theme-cat-manufacturing {
+.theme-cat-peça {
   background: #fff4ee;
   color: #ea580c;
   border-color: #fed7aa;
@@ -787,20 +784,15 @@ body {
   color: #0f766e;
   border-color: #99f6e4;
 }
-.theme-cat-design {
+.theme-cat-instalação {
   background: #f5f3ff;
   color: #7c3aed;
   border-color: #ddd6fe;
 }
-.theme-cat-stress {
-  background: #fef2f2;
-  color: #dc2626;
+.theme-cat-geral {
+  background: #ffe3e3;
+  color: #b91818;
   border-color: #fecaca;
-}
-.theme-cat-lightning {
-  background: #fffbeb;
-  color: #b45309;
-  border-color: #fde68a;
 }
 .theme-subcategoria {
   background: #f8fafc;
@@ -814,35 +806,29 @@ body {
   border-color: var(--c-primary);
   box-shadow: 0 2px 8px rgba(123, 28, 58, 0.2);
 }
-.filter-badge.active.theme-cat-manufacturing {
+.filter-badge.active.theme-cat-peça {
   background: #ea580c;
   color: white;
   border-color: #ea580c;
   box-shadow: 0 2px 8px rgba(234, 88, 12, 0.2);
 }
-.filter-badge.active.theme-cat-materials {
+.filter-badge.active.theme-cat-conjunto {
   background: #0f766e;
   color: white;
   border-color: #0f766e;
   box-shadow: 0 2px 8px rgba(15, 118, 110, 0.2);
 }
-.filter-badge.active.theme-cat-design {
+.filter-badge.active.theme-cat-instalação {
   background: #7c3aed;
   color: white;
   border-color: #7c3aed;
   box-shadow: 0 2px 8px rgba(124, 58, 237, 0.2);
 }
-.filter-badge.active.theme-cat-stress {
+.filter-badge.active.theme-cat-geral {
   background: #dc2626;
   color: white;
   border-color: #dc2626;
   box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
-}
-.filter-badge.active.theme-cat-lightning {
-  background: #b45309;
-  color: white;
-  border-color: #b45309;
-  box-shadow: 0 2px 8px rgba(180, 83, 9, 0.2);
 }
 
 .filter-badge.active.theme-subcategoria {
