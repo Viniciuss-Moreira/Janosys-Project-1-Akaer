@@ -32,7 +32,7 @@ function CartaoLogin() {
         <CampoEntrada
           rotulo="LOGIN"
           tipo="email"
-          placeholder="usuario@akaer.com.br"
+          placeholder="usuario@janosys.com.br"
           valor={usuario}
           aoAlterar={setUsuario}
           tamanhoMaximo={100}
@@ -54,7 +54,7 @@ function CartaoLogin() {
           <Botao texto="ENTRAR" tipo="submit" />
         </div>
         
-        <p className="acesso-restrito">Acesso restrito a colaboradores AKAER</p>
+        <p className="acesso-restrito">Acesso restrito a pessoas autorizadas.</p>
       </form>
     </div>
   );
