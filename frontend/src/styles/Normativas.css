@@ -62,7 +62,7 @@ body {
 }
 .page {
   padding: 32px 24px;
-  max-width: 860px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   flex: 1;
@@ -779,7 +779,7 @@ body {
   color: #ea580c;
   border-color: #fed7aa;
 }
-.theme-cat-materials {
+.theme-cat-conjunto {
   background: #f0fdfa;
   color: #0f766e;
   border-color: #99f6e4;

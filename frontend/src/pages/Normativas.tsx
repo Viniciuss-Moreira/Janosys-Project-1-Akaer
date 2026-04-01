@@ -80,8 +80,8 @@ const NORMAS_BASE: Norma[] = [
     titulo: "Certification Specifications for Large Aeroplanes",
     organizacao: "EASA",
     categoria: "Geral",
-    subcategoria: "Indentificação",
-    tipo: "Pública",
+    subcategoria: "Identificação",
+    tipo: "Privada",
     revisao: "Amendment 27",
     status: "Vigente",
     notas: [
@@ -101,12 +101,7 @@ const ORGANIZACOES = [
   "ISO",
   "AKAER",
 ];
-const CATEGORIAS = [
-  "Peça",
-  "Conjunto",
-  "Instalação",
-  "Geral",
-];
+const CATEGORIAS = ["Peça", "Conjunto", "Instalação", "Geral"];
 
 const SUBCATEGORIAS: Record<string, string[]> = {
   Peça: ["Metálica", "Não Metálica"],
@@ -141,7 +136,7 @@ const FORM_INICIAL: Partial<Norma> = {
   titulo: "",
   organizacao: ORGANIZACOES[0],
   categoria: CATEGORIAS[0],
-  subcategoria: "",
+  subcategoria: SUBCATEGORIAS[CATEGORIAS[0]][0],
   tipo: "Pública",
   revisao: "",
   status: "Vigente",
@@ -365,6 +360,16 @@ function NormaCardItem({
                 <i className="fas fa-layer-group"></i> {norma.subcategoria}
               </span>
             )}
+
+            <span
+              className={`badge ${norma.tipo === "Pública" ? "badge-tipo-publica" : "badge-tipo-privada"}`}
+            >
+              <i
+                className={`fas ${norma.tipo === "Pública" ? "fa-globe" : "fa-lock"}`}
+              ></i>
+              {norma.tipo}
+            </span>
+
             <span className={`badge ${norma.status.toLowerCase()}`}>
               {norma.status === "Vigente" ? (
                 <i className="fas fa-check-circle"></i>
@@ -498,9 +503,8 @@ export default function Biblioteca() {
       ]);
   };
 
-  const subcategoriasDisponiveis = filtroCategoria !== "Todas"
-  ? SUBCATEGORIAS[filtroCategoria] ?? []
-  : [];
+  const subcategoriasDisponiveis =
+    filtroCategoria !== "Todas" ? (SUBCATEGORIAS[filtroCategoria] ?? []) : [];
 
   const filtrosAtivos =
     termoPesquisa !== "" ||
@@ -885,14 +889,37 @@ export default function Biblioteca() {
 
                     <div className="form-group">
                       <label className="form-label">
+                        <i className="fas fa-code-branch"></i> Revisão
+                      </label>
+                      <input
+                        className="form-input"
+                        value={form.revisao}
+                        onChange={(evento) =>
+                          updateForm("revisao", evento.target.value)
+                        }
+                        placeholder="Ex: Rev. A"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label">
                         <i className="fas fa-tags"></i> Categoria
                       </label>
                       <select
                         className="form-select"
                         value={form.categoria}
                         onChange={(evento) => {
-                          updateForm("categoria", evento.target.value);
-                          updateForm("subcategoria", "");
+                          const novaCategoria = evento.target.value;
+                          updateForm("categoria", novaCategoria);
+
+                          const subcategoriasDaCategoria =
+                            SUBCATEGORIAS[novaCategoria] || [];
+                          updateForm(
+                            "subcategoria",
+                            subcategoriasDaCategoria.length > 0
+                              ? subcategoriasDaCategoria[0]
+                              : "",
+                          );
                         }}
                       >
                         {CATEGORIAS.map((nomeCategoria) => (
@@ -903,7 +930,7 @@ export default function Biblioteca() {
                       </select>
                     </div>
 
-                    <div className="form-group full-width">
+                    <div className="form-group">
                       <label className="form-label">
                         <i className="fas fa-layer-group"></i> Subcategoria
                       </label>
@@ -914,12 +941,13 @@ export default function Biblioteca() {
                           updateForm("subcategoria", evento.target.value)
                         }
                       >
-                        <option value="">Selecione uma subcategoria</option>
-                        {(SUBCATEGORIAS[form.categoria ?? ""] ?? []).map((nomeSub) => (
-                          <option key={nomeSub} value={nomeSub}>
-                            {nomeSub}
-                          </option>
-                        ))}
+                        {(SUBCATEGORIAS[form.categoria ?? ""] ?? []).map(
+                          (nomeSub) => (
+                            <option key={nomeSub} value={nomeSub}>
+                              {nomeSub}
+                            </option>
+                          ),
+                        )}
                       </select>
                     </div>
                   </div>
@@ -957,19 +985,6 @@ export default function Biblioteca() {
                           <option value="Pública">Pública</option>
                           <option value="Privada">Privada</option>
                         </select>
-                      </div>
-                      <div className="form-group full-width">
-                        <label className="form-label">
-                          <i className="fas fa-code-branch"></i> Revisão
-                        </label>
-                        <input
-                          className="form-input"
-                          value={form.revisao}
-                          onChange={(evento) =>
-                            updateForm("revisao", evento.target.value)
-                          }
-                          placeholder="Ex: Rev. A"
-                        />
                       </div>
                     </div>
 
@@ -1284,6 +1299,9 @@ export default function Biblioteca() {
                       <span
                         className={`badge ${normaVisualizar.tipo === "Pública" ? "badge-tipo-publica" : "badge-tipo-privada"}`}
                       >
+                        <i
+                          className={`fas ${normaVisualizar.tipo === "Pública" ? "fa-globe" : "fa-lock"}`}
+                        ></i>
                         {normaVisualizar.tipo || "Pública"}
                       </span>
                     </span>
