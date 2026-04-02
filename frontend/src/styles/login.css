@@ -189,8 +189,13 @@
 
 /* --- Responsividade --- */
 @media (max-width: 480px) {
-  .logo-jano {
-    height: 72px;
+  .logo-jano-signa {
+    height: 120px;
+  }
+
+ .titulo-cartao-login {
+  font-size: 20px;
+  letter-spacing: 1px;
   }
 
   .cartao-login {
@@ -204,9 +209,12 @@
   }
 
   .rodape-login {
-    position: fixed;
-    bottom: 16px;
-    right: 50%;
-    transform: translateX(50%);
+    position: relative;
+    bottom: auto;
+    right: auto;
+    transform: none;
+    justify-content: center;
+    margin-top: 24px;
+    padding-bottom: 16px;
   }
 }
