@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, type ChangeEvent } from "react";
 import "../components/Sidebar";
-import "../styles/Normativas.css";
+import "../styles/Normas.css";
 
 interface Norma {
   id: string;
