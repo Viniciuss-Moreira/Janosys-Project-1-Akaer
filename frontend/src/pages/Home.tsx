@@ -495,7 +495,7 @@ export default function Home() {
                   </div>
                   <div className="view-item">
                     <span className="view-label">
-                      <i className="fas fa-folder-open"></i> Localização
+                      <i className="fas fa-folder-open"></i> Subcategoria
                     </span>
                     <span className="view-value">
                       {pecaVisualizar.subcategoria}
