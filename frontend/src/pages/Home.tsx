@@ -9,6 +9,7 @@ interface Norma {
   organizacao: string;
   categoria: string;
   subcategoria: string;
+  item: string;
   tipo: string;
   revisao: string;
   status: string;
@@ -45,41 +46,64 @@ const NORMAS_BASE: Norma[] = [
     codigo: "25.1309",
     titulo: "Análise de Segurança de Sistemas",
     organizacao: "ANAC",
-    categoria: "INSTALAÇÃO",
-    subcategoria: "ELÉTRICA",
+    categoria: "Instalação",
+    subcategoria: "Geral",
+    item: "Parafuso",
     tipo: "Pública",
     revisao: "Emenda 09",
     status: "Vigente",
     notas: ["Norma principal de safety."],
     referencias: ["SAE ARP4761"],
-    nomePdf: "RBAC_25_1309.pdf",
-    urlPdf: "#",
+    nomePdf: "rbac-25-1309.pdf",
+    urlPdf: "/rbac-25-1309.pdf",
   },
   {
     id: "FAR 25.571",
     codigo: "25.571",
     titulo: "Damage Tolerance and Fatigue Evaluation",
     organizacao: "FAA",
-    categoria: "PEÇA",
-    subcategoria: "METÁLICA",
+    categoria: "Conjunto",
+    subcategoria: "União de Peças",
+    item: "Soldagem",
     tipo: "Pública",
     revisao: "Amendment 27",
     status: "Vigente",
     notas: [],
     referencias: [],
+    nomePdf: "far-25-571.pdf",
+    urlPdf: "/far-25-571.pdf",
   },
   {
     id: "ISO 9001:2015",
     codigo: "9001",
-    titulo: "Quality management systems",
+    titulo: "Quality management systems — Requirements",
     organizacao: "ISO",
-    categoria: "GERAL",
-    subcategoria: "BASIC NOTES",
-    tipo: "Privada",
+    categoria: "Peça",
+    subcategoria: "Metálica",
+    item: "Usinado",
+    tipo: "Pública",
     revisao: "2015",
     status: "Vigente",
-    notas: ["Requisitos gerais para o sistema de gestão da qualidade."],
+    notas: [
+      "Requisitos gerais para o sistema de gestão da qualidade nas plantas de manufatura.",
+    ],
     referencias: ["ISO 9000:2015"],
+  },
+  {
+    id: "CS-25",
+    codigo: "CS-25",
+    titulo: "Certification Specifications for Large Aeroplanes",
+    organizacao: "EASA",
+    categoria: "Conjunto",
+    subcategoria: "Cablagem",
+    item: "Conector",
+    tipo: "Privada",
+    revisao: "Amendment 27",
+    status: "Vigente",
+    notas: [
+      "Especificações essenciais para certificação EASA em aeronaves de grande porte.",
+    ],
+    referencias: ["FAR 25"],
   },
 ];
 
