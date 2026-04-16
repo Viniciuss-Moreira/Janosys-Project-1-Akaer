@@ -15,6 +15,7 @@ interface Norma {
   status: string;
   notas: string[];
   referencias: string[];
+  palavrasChave: string[];
   nomePdf?: string;
   urlPdf?: string;
   imagens?: string[];
@@ -56,6 +57,7 @@ const NORMAS_BASE: Norma[] = [
     status: "Vigente",
     notas: ["Norma principal de safety."],
     referencias: ["SAE ARP4761"],
+    palavrasChave: ["safety", "análise de risco"],
     nomePdf: "rbac-25-1309.pdf",
     urlPdf: "/rbac-25-1309.pdf",
   },
@@ -72,6 +74,7 @@ const NORMAS_BASE: Norma[] = [
     status: "Vigente",
     notas: [],
     referencias: [],
+    palavrasChave: ["fadiga", "tolerância", "dano"],
     nomePdf: "far-25-571.pdf",
     urlPdf: "/far-25-571.pdf",
   },
@@ -90,6 +93,7 @@ const NORMAS_BASE: Norma[] = [
       "Requisitos gerais para o sistema de gestão da qualidade nas plantas de manufatura.",
     ],
     referencias: ["ISO 9000:2015"],
+    palavrasChave: ["qualidade", "gestão", "requisitos"],
   },
   {
     id: "CS-25",
@@ -106,6 +110,7 @@ const NORMAS_BASE: Norma[] = [
       "Especificações essenciais para certificação EASA em aeronaves de grande porte.",
     ],
     referencias: ["FAR 25"],
+    palavrasChave: ["certificação", "aeronave grande", "easa"],
   },
 ];
 
@@ -187,6 +192,7 @@ const FORM_INICIAL: Partial<Norma> = {
   status: "Vigente",
   notas: [""],
   referencias: [""],
+  palavrasChave: [""],
 };
 
 function ToastContainer({
@@ -407,8 +413,7 @@ function NormaCardItem({
             )}
             {norma.item && (
               <span
-                className="badge theme-subcategoria"
-                style={{ opacity: 0.85 }}
+                className="badge theme-subcategoria badge-secundario"
               >
                 <i className="fas fa-cube"></i> {norma.item}
               </span>
@@ -611,11 +616,17 @@ export default function Biblioteca() {
   };
 
   const termoMinusculo = termoPesquisa.toLowerCase();
+
   const normasFiltradas = normas.filter((normaAtual) => {
     const matchBusca =
       normaAtual.id.toLowerCase().includes(termoMinusculo) ||
       normaAtual.codigo.toLowerCase().includes(termoMinusculo) ||
-      normaAtual.titulo.toLowerCase().includes(termoMinusculo);
+      normaAtual.titulo.toLowerCase().includes(termoMinusculo) ||
+      (normaAtual.palavrasChave &&
+        normaAtual.palavrasChave.some((palavraAtual) =>
+          palavraAtual.toLowerCase().includes(termoMinusculo)
+        ));
+
     const matchCategoria =
       filtroCategoria === "Todas" || normaAtual.categoria === filtroCategoria;
     const matchSubcategoria =
@@ -623,6 +634,7 @@ export default function Biblioteca() {
     const matchItem = !filtroItem || normaAtual.item === filtroItem;
     const matchStatus =
       filtroStatus === "Todos" || normaAtual.status === filtroStatus;
+    
     return (
       matchBusca &&
       matchCategoria &&
@@ -693,6 +705,10 @@ export default function Biblioteca() {
           form.referencias?.filter(
             (referenciaAtual) => referenciaAtual.trim() !== "",
           ) || [],
+        palavrasChave:
+          form.palavrasChave?.filter(
+            (palavraAtual) => palavraAtual.trim() !== "",
+          ) || [],
         nomePdf: arquivoPdf ? arquivoPdf.name : undefined,
         urlPdf: stringBase64Pdf,
         imagens: stringsBase64Imagens,
@@ -754,12 +770,12 @@ export default function Biblioteca() {
 
         <div className="filtros-container">
           <div className="filtros-header">
-            <div className="form-group search-group">
+            <div className="form-group search-group" style={{ flex: 1 }}>
               <i className="fas fa-magnifying-glass search-icon"></i>
               <input
                 type="text"
                 className="form-input search-input"
-                placeholder="Pesquisar por ID, Código ou Título..."
+                placeholder="Pesquisar por ID, Código, Título ou Palavra-chave..."
                 value={termoPesquisa}
                 onChange={(evento) => setTermoPesquisa(evento.target.value)}
               />
@@ -773,6 +789,7 @@ export default function Biblioteca() {
                 </button>
               )}
             </div>
+
             {filtrosAtivos && (
               <button
                 className="btn btn-limpar-filtros"
@@ -1186,6 +1203,60 @@ export default function Biblioteca() {
 
                     <div className="form-group">
                       <label className="form-label">
+                        <i className="fas fa-key"></i> Palavras-chave
+                      </label>
+                      <div className="dynamic-list">
+                        {form.palavrasChave?.map(
+                          (palavraAtual, indicePalavra) => (
+                            <div key={indicePalavra} className="dynamic-row">
+                              <input
+                                className="form-input"
+                                value={palavraAtual}
+                                onChange={(evento) => {
+                                  const novasPalavras = [
+                                    ...form.palavrasChave!,
+                                  ];
+                                  novasPalavras[indicePalavra] =
+                                    evento.target.value;
+                                  updateForm("palavrasChave", novasPalavras);
+                                }}
+                                placeholder="Palavra-chave..."
+                              />
+                              <button
+                                type="button"
+                                className="btn btn-danger btn-icon"
+                                onClick={() =>
+                                  updateForm(
+                                    "palavrasChave",
+                                    form.palavrasChave!.filter(
+                                      (_, indiceAtual) =>
+                                        indiceAtual !== indicePalavra,
+                                    ),
+                                  )
+                                }
+                              >
+                                <i className="fas fa-trash"></i>
+                              </button>
+                            </div>
+                          ),
+                        )}
+                        <button
+                          type="button"
+                          className="btn btn-ghost btn-add-more"
+                          onClick={() =>
+                            updateForm("palavrasChave", [
+                              ...form.palavrasChave!,
+                              "",
+                            ])
+                          }
+                        >
+                          <i className="fas fa-plus"></i> Nova palavra-chave
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="form-group">
+                      <label className="form-label">
                         <i className="fas fa-pen-to-square"></i> Notas Técnicas
                       </label>
                       <div className="dynamic-list">
@@ -1560,6 +1631,21 @@ export default function Biblioteca() {
 
                 <hr className="divider" />
 
+                {normaVisualizar.palavrasChave && normaVisualizar.palavrasChave.length > 0 && (
+                  <div className="view-item">
+                    <span className="view-label">
+                      <i className="fas fa-key"></i> Palavras-chave
+                    </span>
+                    <div className="view-badges">
+                      {normaVisualizar.palavrasChave.map((palavraAtual, indicePalavra) => (
+                        <span key={indicePalavra} className="badge theme-subcategoria">
+                          {palavraAtual}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {normaVisualizar.notas.length > 0 && (
                   <div className="view-item">
                     <span className="view-label">
@@ -1575,6 +1661,7 @@ export default function Biblioteca() {
                     </ul>
                   </div>
                 )}
+                
                 {normaVisualizar.referencias.length > 0 && (
                   <div className="view-item">
                     <span className="view-label">
@@ -1646,7 +1733,8 @@ export default function Biblioteca() {
                   </>
                 )}
 
-                {normaVisualizar.notas.length === 0 &&
+                {(!normaVisualizar.palavrasChave || normaVisualizar.palavrasChave.length === 0) &&
+                  normaVisualizar.notas.length === 0 &&
                   normaVisualizar.referencias.length === 0 &&
                   !normaVisualizar.urlPdf &&
                   (!normaVisualizar.imagens ||

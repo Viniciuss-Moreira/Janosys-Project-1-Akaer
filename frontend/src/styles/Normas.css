@@ -281,6 +281,10 @@ body {
   border-color: #cbd5e1;
 }
 
+.badge-secundario {
+  opacity: 0.85;
+}
+
 .results-count {
   font-size: 0.82rem;
   font-weight: 600;
@@ -1175,9 +1179,11 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .filtros-header .search-group {
   flex: 1;
+  min-width: 250px;
 }
 
 .search-clear {
