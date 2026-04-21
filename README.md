@@ -115,10 +115,15 @@ O projeto é idealizado pela FATEC de São José dos Campos e alunos, tendo como
 | 7 | Filtro de Normas por Categoria Pública ou Privada | ALTA | Como engenheiro, quero filtrar normas por categoria (pública ou privada), para melhor organização. | 5 | 2 |
 | 8 | Gestão de Peças no Sistema | ALTA | Como administrador, quero gerenciar peças no sistema para melhor organização. | 8 | 2 |
 | 9 | Visualização de Peças por Normas | MÉDIA | Como engenheiro, quero visualizar peças relacionadas a uma norma. | 6 | 2 |
-| 10 | Histórico de Alterações de Normas | MÉDIA | Como administrador, quero registrar alterações feitas nas normas e quem as alterou, para melhor controle das mesmas. | 7 | 3 |
-| 11 | Visualização do Histórico de Alterações | MÉDIA | Como administrador, quero visualizar o histórico de alterações de uma norma para uma melhor gestão. | 7 | 3 |
-| 12 | Controle de Acesso por Níveis de Usuário | MÉDIA | Como administrador, desejo que o sistema possua diferentes níveis de usuário que permitam visualização e alteração de normas e notas, para um melhor controle de acesso. | 5 | 3 |
-| 13 | Gestão de Usuários | MÉDIA | Como administrador, quero gerenciar usuários para acesso e controle do sistema. | 6 | 3 |
+| 10 | Solicitação de novas normas | ALTA | Como operador gostaria de solicitar normas para manter o sistema atualizado. | 8 | 2 |
+| 11 | Aprovação e reprovação de normas do sistema. | ALTA | como Checker gostaria de aprovar ou reprovar as sugestão de normas para manter o sistema confiável. | 8 | 2|
+| 12 | Editar normas cadastradas. | ALTA | como administrador quero editar normas cadastradas para deixar o sistema atualizado. | 8 | 2 |
+| 13 | Favoritar normas cadastradas | MÉDIA | como operador gostaria de favoritar as normas para melhor organização. | 7 | 2 |
+| 14 | Permitir modificação do sistema via código-fonte | MÉDIA | como técnico gostaria de modicar características do sistema para adptar as necessidades da empresa. | 6 | 3 |
+| 15 | Histórico de Alterações de Normas | MÉDIA | Como administrador, quero registrar alterações feitas nas normas e quem as alterou, para melhor controle das mesmas. | 7 | 3 |
+| 16 | Visualização do Histórico de Alterações | MÉDIA | Como administrador, quero visualizar o histórico de alterações de uma norma para uma melhor gestão. | 7 | 3 |
+| 17 | Controle de Acesso por Níveis de Usuário | MÉDIA | Como administrador, desejo que o sistema possua diferentes níveis de usuário que permitam visualização e alteração de normas e notas, para um melhor controle de acesso. | 5 | 3 |
+| 18 | Gestão de Usuários | MÉDIA | Como administrador, quero gerenciar usuários para acesso e controle do sistema. | 6 | 3 |
 ---
 
 # Registro das Sprints <a id="sprints"></a>
