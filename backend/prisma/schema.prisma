@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Norma {
+  id              Int     @id @default(autoincrement())
+  titulo          String
+  urlPdf          String?
+  status          Boolean
+  orgao           String
+  descricao       String?
+  imagemUrl       String?
+  identificador   String
+
+  tipoNormaId     Int
+  subcategoriaId  Int
+
+  tipoNorma       TipoNorma    @relation(fields: [tipoNormaId], references: [id])
+  subcategoria    Subcategoria @relation(fields: [subcategoriaId], references: [id])
+
+  notas           NotaNorma[]
+  referenciasOrigem NormaReferencia[] @relation("origem")
+  referenciasDestino NormaReferencia[] @relation("destino")
+}
+
+model TipoNorma {
+  id        Int     @id @default(autoincrement())
+  descricao String
+  normas    Norma[]
+}
+
+model Subcategoria {
+  id          Int     @id @default(autoincrement())
+  descricao   String
+  categoriaId Int
+
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  normas      Norma[]
+}
+
+model Categoria {
+  id            Int     @id @default(autoincrement())
+  descricao     String
+  subcategorias Subcategoria[]
+}
+
+model Nota {
+  id        Int    @id @default(autoincrement())
+  descricao String
+
+  normas NotaNorma[]
+}
+
+model NotaNorma {
+  notaId  Int
+  normaId Int
+
+  nota  Nota  @relation(fields: [notaId], references: [id])
+  norma Norma @relation(fields: [normaId], references: [id])
+
+  @@id([notaId, normaId])
+}
+
+model NormaReferencia {
+  id              Int @id @default(autoincrement())
+  normaOrigemId   Int
+  normaDestinoId  Int
+
+  origem   Norma @relation("origem", fields: [normaOrigemId], references: [id])
+  destino  Norma @relation("destino", fields: [normaDestinoId], references: [id])
+}
