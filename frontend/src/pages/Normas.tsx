@@ -1,6 +1,7 @@
-import { useState, useEffect, useCallback, type ChangeEvent } from "react";
+import { useState, useEffect, useCallback, useMemo, type ChangeEvent } from "react";
 import "../components/Sidebar";
 import "../styles/Normas.css";
+import { carregarPecas, listarPecasRelacionadas, type Peca } from "../helpers/pecas";
 
 interface Norma {
   id: string;
@@ -501,6 +502,7 @@ function NormaCardItem({
 }
 
 export default function Biblioteca() {
+  const [pecas] = useState<Peca[]>(() => carregarPecas());
   const [normas, setNormas] = useState<Norma[]>(() => {
     const normasSalvas = localStorage.getItem("biblioteca_normas");
     if (normasSalvas) {
@@ -597,6 +599,11 @@ export default function Biblioteca() {
 
   const [arquivoPdf, setArquivoPdf] = useState<File | null>(null);
   const [arquivosImagens, setArquivosImagens] = useState<File[]>([]);
+
+  const pecasRelacionadas = useMemo(() => {
+    if (!normaVisualizar) return [];
+    return listarPecasRelacionadas(pecas, normaVisualizar.id);
+  }, [normaVisualizar, pecas]);
 
   const handlePdfChange = (eventoMudanca: ChangeEvent<HTMLInputElement>) => {
     if (eventoMudanca.target.files?.[0]) setArquivoPdf(eventoMudanca.target.files[0]);
@@ -1748,6 +1755,33 @@ export default function Biblioteca() {
                   </div>
                 </div>
 
+                <div className="view-item">
+                  <span className="view-label">
+                    <i className="fas fa-cubes"></i> Peças relacionadas
+                  </span>
+                  {pecasRelacionadas.length > 0 ? (
+                    <div className="pecas-relacionadas-lista">
+                      {pecasRelacionadas.map((pecaRelacionada, indicePeca) => (
+                        <div
+                          key={`${pecaRelacionada.nome}-${pecaRelacionada.categoria}-${pecaRelacionada.subcategoria}-${indicePeca}`}
+                          className="peca-relacionada-card"
+                        >
+                          <span className="peca-relacionada-nome">{pecaRelacionada.nome}</span>
+                          <div className="peca-relacionada-badges">
+                            <span className="badge theme-subcategoria">{pecaRelacionada.categoria}</span>
+                            <span className="badge theme-subcategoria badge-secundario">{pecaRelacionada.subcategoria}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="empty-state compact">
+                      <i className="fas fa-cube"></i>
+                      <p>Nenhuma peça relacionada.</p>
+                    </div>
+                  )}
+                </div>
+
                 <hr className="divider" />
 
                 {normaVisualizar.palavrasChave && normaVisualizar.palavrasChave.length > 0 && (
@@ -1856,6 +1890,7 @@ export default function Biblioteca() {
                 {(!normaVisualizar.palavrasChave || normaVisualizar.palavrasChave.length === 0) &&
                   normaVisualizar.notas.length === 0 &&
                   normaVisualizar.referencias.length === 0 &&
+                  pecasRelacionadas.length === 0 &&
                   !normaVisualizar.urlPdf &&
                   (!normaVisualizar.imagens ||
                     normaVisualizar.imagens.length === 0) && (
