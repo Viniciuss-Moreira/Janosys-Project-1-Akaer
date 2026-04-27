@@ -66,7 +66,8 @@ export const NORMAS_BASE: Norma[] = [
     referencias: ["SAE ARP4761"],
     palavrasChave: ["safety", "análise de risco"],
     nomePdf: "rbac-25-1309.pdf",
-    urlPdf: "/rbac-25-1309.pdf",
+    urlPdf: "/pdf/rbac-25-1309.pdf",
+    imagens: ["/imagem/rbac-25-1309.jpeg"]
   },
   {
     id: "FAR 25.571",
@@ -83,7 +84,8 @@ export const NORMAS_BASE: Norma[] = [
     referencias: [],
     palavrasChave: ["fadiga", "tolerância", "dano"],
     nomePdf: "far-25-571.pdf",
-    urlPdf: "/far-25-571.pdf",
+    urlPdf: "/pdf/far-25-571.pdf",
+    imagens: ["/imagem/far-25-571.jpeg"]
   },
   {
     id: "ISO 9001:2015",
